@@ -36,8 +36,77 @@ final class NewsScreentViewModel: ObservableObject {
 }
 
 struct NewsScreen: View {
+    @StateObject var newsList = NewsScreentViewModel()
+    var setings = ["List", "Grid", "Grid iOS 13"]
+    @State var collectionViewChoise = 0
+    var columns: [GridItem] = Array(repeating: .init(), count: 2)
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack {
+                Picker("Options", selection: $collectionViewChoise) {
+                    ForEach(0 ..< setings.count) { index in
+                        Text(self.setings[index])
+                            .tag(index)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+                if collectionViewChoise == 0 {
+                    list
+                } else if collectionViewChoise == 1 {
+                    grid
+                } else {
+                    grid13
+                }
+            }
+        }
+    }
+
+    var list: some View {
+        VStack {
+            List(newsList.NewsList) { item in
+                Text(item.title ?? "No title")
+            }
+        }
+    }
+
+    var grid: some View {
+        LazyVGrid(columns: columns) {
+            ForEach(newsList.NewsList) {
+                ArticleCellView(title: $0.title ?? "No title")
+            }
+        }
+        .padding(.horizontal, 20)
+    }
+
+    var grid13: some View {
+        VStack(spacing: 10) {
+            ForEach(0..<newsList.NewsListForGrid.count, id:\.self) { row in
+                HStack(spacing: 10) {
+                    ForEach(newsList.NewsListForGrid[row], id: \.self) {
+                        ArticleCellView(title: $0.title ?? "No title")
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, 20)
+    }
+
+}
+
+struct ArticleCellView: View {
+    let title: String
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(.gray)
+            VStack {
+                Text(title)
+                    .foregroundColor(.white)
+                    .padding()
+                Spacer()
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 200)
     }
 }
 
