@@ -24,11 +24,10 @@ struct CatalogScreen: View {
                         Text(spis.name)
                     })
                     if(viewModel.isNavigationList) {
-                        NavigationLink(destination: listInfoView(str: "2"), isActive: $viewModel.isNavigationList, label: {
-                            Text("2")
-                        }).hidden()
+
                     }
-                }
+                }.overlay(
+                    NavigationLink(destination: listInfoView(str: "2"), isActive: $viewModel.isNavigationList){EmptyView()}.hidden())
         }
     }
 }

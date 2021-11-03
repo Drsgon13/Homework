@@ -61,10 +61,12 @@ struct NewsScreen: View {
     }
 
     var list: some View {
-        VStack {
-            List(newsList.NewsList) { item in
+        ForEach(newsList.NewsList) { item in
+            VStack {
                 Text(item.title ?? "No title")
+                Text(item.author ?? "No author")
             }
+            Divider()
         }
     }
 
@@ -78,9 +80,9 @@ struct NewsScreen: View {
     }
 
     var grid13: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 8) {
             ForEach(0..<newsList.NewsListForGrid.count, id:\.self) { row in
-                HStack(spacing: 10) {
+                HStack(spacing: 8) {
                     ForEach(newsList.NewsListForGrid[row], id: \.self) {
                         ArticleCellView(title: $0.title ?? "No title")
                     }
