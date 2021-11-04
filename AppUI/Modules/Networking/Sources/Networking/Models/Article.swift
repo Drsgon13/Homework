@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct Article: Codable, Hashable {
 
+//    public var id = UUID()
     public var source: Source?
     public var author: String?
     public var title: String?

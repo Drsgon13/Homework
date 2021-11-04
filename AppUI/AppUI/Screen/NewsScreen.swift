@@ -19,7 +19,7 @@ final class NewsScreentViewModel: ObservableObject {
     @Published var NewsListForGrid: [[Article]] = .init()
 
     init() {
-        ArticlesAPI.everythingGet(q: "VR", from: "2021-10-03", sortBy: "publishedAt", language: "ru", apiKey: "a59e5f24831a4322b535578654582973", page: 1) {
+        ArticlesAPI.everythingGet(q: "VR", from: "2021-10-10", sortBy: "publishedAt", language: "ru", apiKey: "a59e5f24831a4322b535578654582973", page: 1) {
             list, error in
             self.NewsList.append(contentsOf:  list?.articles ?? [])
             self.collectArticlesAsGrid()
