@@ -13,6 +13,8 @@
 		66691C9A27327CC10044222D /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66691C9927327CC10044222D /* NewsScreen.swift */; };
 		66691C9D27327FCC0044222D /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 66691C9C27327FCC0044222D /* Networking */; };
 		66691CA02732ED820044222D /* ActivityIndikator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66691C9F2732ED820044222D /* ActivityIndikator.swift */; };
+		669B6D852744F69C00A4E63D /* HomeworkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669B6D842744F69C00A4E63D /* HomeworkScreen.swift */; };
+		669B6D8C2745214500A4E63D /* AppSUI in Frameworks */ = {isa = PBXBuildFile; productRef = 669B6D8B2745214500A4E63D /* AppSUI */; };
 		66F4C90F272FE6B4008112F7 /* AppUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4C90E272FE6B4008112F7 /* AppUIApp.swift */; };
 		66F4C911272FE6B4008112F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F4C910272FE6B4008112F7 /* ContentView.swift */; };
 		66F4C913272FE6B6008112F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F4C912272FE6B6008112F7 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		66691C9827327A1D0044222D /* Networking */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Networking; path = Modules/Networking; sourceTree = "<group>"; };
 		66691C9927327CC10044222D /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		66691C9F2732ED820044222D /* ActivityIndikator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndikator.swift; sourceTree = "<group>"; };
+		669B6D842744F69C00A4E63D /* HomeworkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkScreen.swift; sourceTree = "<group>"; };
+		669B6D862744F7D900A4E63D /* AppSUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppSUI; path = ../../../../Downloads/Otus/Homework/AppUI/Modules/AppSUI; sourceTree = "<group>"; };
 		66F4C90B272FE6B4008112F7 /* AppUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F4C90E272FE6B4008112F7 /* AppUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUIApp.swift; sourceTree = "<group>"; };
 		66F4C910272FE6B4008112F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669B6D8C2745214500A4E63D /* AppSUI in Frameworks */,
 				66691C9D27327FCC0044222D /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,6 +57,7 @@
 				66691C91273009090044222D /* CatalogScreen.swift */,
 				66691C93273009170044222D /* ProfileScreen.swift */,
 				66691C9927327CC10044222D /* NewsScreen.swift */,
+				669B6D842744F69C00A4E63D /* HomeworkScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -74,6 +80,7 @@
 		66F4C902272FE6B4008112F7 = {
 			isa = PBXGroup;
 			children = (
+				669B6D862744F7D900A4E63D /* AppSUI */,
 				66691C9827327A1D0044222D /* Networking */,
 				66F4C90D272FE6B4008112F7 /* AppUI */,
 				66F4C90C272FE6B4008112F7 /* Products */,
@@ -128,6 +135,7 @@
 			name = AppUI;
 			packageProductDependencies = (
 				66691C9C27327FCC0044222D /* Networking */,
+				669B6D8B2745214500A4E63D /* AppSUI */,
 			);
 			productName = AppUI;
 			productReference = 66F4C90B272FE6B4008112F7 /* AppUI.app */;
@@ -186,6 +194,7 @@
 				66F4C911272FE6B4008112F7 /* ContentView.swift in Sources */,
 				66691C92273009090044222D /* CatalogScreen.swift in Sources */,
 				66691CA02732ED820044222D /* ActivityIndikator.swift in Sources */,
+				669B6D852744F69C00A4E63D /* HomeworkScreen.swift in Sources */,
 				66691C9A27327CC10044222D /* NewsScreen.swift in Sources */,
 				66F4C90F272FE6B4008112F7 /* AppUIApp.swift in Sources */,
 				66691C90273008F90044222D /* DashboardScreen.swift in Sources */,
@@ -397,6 +406,10 @@
 		66691C9C27327FCC0044222D /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
+		};
+		669B6D8B2745214500A4E63D /* AppSUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppSUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

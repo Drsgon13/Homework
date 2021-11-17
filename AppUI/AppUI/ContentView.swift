@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State private var selection = 3
+    @State private var selection = 1
     @EnvironmentObject var viewModel: ViewModel
 
     var body: some View {
         TabView(selection: $selection) {
             DashboardScreen() {
                 viewModel.isNavigationList.toggle()
-                selection = 1
+                selection = 4
                 
             }
                 .tabItem {
@@ -42,6 +42,12 @@ struct ContentView: View {
                     Text("News")
                 }
                 .tag(3)
+            HomeworkScreen()
+                .tabItem {
+                    Image(systemName: "homekit")
+                    Text("Homework")
+                }
+                .tag(4)
         }
     }
 }

@@ -6,37 +6,73 @@
 //
 
 import SwiftUI
-
-
-struct Spisok: Identifiable {
-    let name: String
-    let id = UUID()
-}
+import AppSUI
 
 struct CatalogScreen: View {
-    @State var spisok = [Spisok(name: "1"), Spisok(name: "2"), Spisok(name: "3"), Spisok(name: "4")]
-    @EnvironmentObject var viewModel: ViewModel
     var body: some View {
-        NavigationView {
-
-                List(spisok) { spis in
-                    NavigationLink(destination: listInfoView(str: spis.name), label: {
-                        Text(spis.name)
-                    })
-                    if(viewModel.isNavigationList) {
-
-                    }
-                }.overlay(
-                    NavigationLink(destination: listInfoView(str: "2"), isActive: $viewModel.isNavigationList){EmptyView()}.hidden())
+        NavControllerView() {
+            FirstScreen()
         }
     }
 }
 
-struct listInfoView: View {
-    @State var str: String
+struct FirstScreen: View {
+
     var body: some View {
-        Text(str)
+        VStack {
+            NavPushButton(destination: SecondScreen()) {
+                Text("To 2 Screen")
+                    .padding()
+                    .background(Color.green)
+            }
+            CustomButton(action: {}) {
+                VStack {
+                    Text("OK Button")
+                }
+            }
+        }
     }
+
+}
+
+struct SecondScreen: View {
+
+    var body: some View {
+        VStack {
+            NavPushButton(destination: ThirdScreen()) {
+                Text("To 3 Screen")
+                    .padding()
+                    .background(Color.blue)
+            }
+            NavPopButton(destination: .root) {
+                Text("Back To Root")
+                    .padding()
+                    .background(Color.red)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+}
+
+struct ThirdScreen: View {
+
+    var body: some View {
+        VStack {
+            NavPopButton(destination: .previous) {
+                Text("Back 2 Screen")
+                    .padding()
+                    .background(Color.yellow)
+            }
+            NavPopButton(destination: .root) {
+                Text("Back To Root")
+                    .padding()
+                    .background(Color.red)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
 }
 
 struct CatalogScreen_Previews: PreviewProvider {

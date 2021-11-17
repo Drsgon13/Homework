@@ -19,7 +19,7 @@ final class NewsScreentViewModel: ObservableObject {
     @Published var NewsListForGrid: [[Article]] = .init()
 
     init() {
-        ArticlesAPI.everythingGet(q: "VR", from: "2021-10-10", sortBy: "publishedAt", language: "ru", apiKey: "a59e5f24831a4322b535578654582973", page: 1) {
+        ArticlesAPI.everythingGet(q: "VR", from: "2021-10-18", sortBy: "publishedAt", language: "ru", apiKey: "a59e5f24831a4322b535578654582973", page: 1) {
             list, error in
             self.NewsList.append(contentsOf:  list?.articles ?? [])
             self.collectArticlesAsGrid()
@@ -41,7 +41,6 @@ struct NewsScreen: View {
     @State var collectionViewChoise = 0
     var columns: [GridItem] = Array(repeating: .init(), count: 2)
     var body: some View {
-        ScrollView {
             VStack {
                 Picker("Options", selection: $collectionViewChoise) {
                     ForEach(0 ..< setings.count) { index in
@@ -57,29 +56,30 @@ struct NewsScreen: View {
                     grid13
                 }
             }
-        }
     }
 
     var list: some View {
-        ForEach(newsList.NewsList) { item in
+        List(newsList.NewsList) { item in
             VStack {
                 Text(item.title ?? "No title")
                 Text(item.author ?? "No author")
             }
-            Divider()
         }
     }
 
     var grid: some View {
+        ScrollView {
         LazyVGrid(columns: columns) {
             ForEach(newsList.NewsList) {
                 ArticleCellView(title: $0.title ?? "No title")
             }
         }
         .padding(.horizontal, 20)
+        }
     }
 
     var grid13: some View {
+        ScrollView {
         VStack(spacing: 8) {
             ForEach(0..<newsList.NewsListForGrid.count, id:\.self) { row in
                 HStack(spacing: 8) {
@@ -90,6 +90,7 @@ struct NewsScreen: View {
             }
         }
         .padding(.horizontal, 20)
+        }
     }
 
 }
