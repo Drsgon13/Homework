@@ -10,7 +10,7 @@ import AppSUI
 
 struct CatalogScreen: View {
     var body: some View {
-        NavControllerView() {
+        NavControllerView(transition: .custom(.moveAndFade)) {
             FirstScreen()
         }
     }
@@ -20,6 +20,8 @@ struct FirstScreen: View {
 
     var body: some View {
         VStack {
+            Text("1")
+                .font(Font.system(size: 200))
             NavPushButton(destination: SecondScreen()) {
                 Text("To 2 Screen")
                     .padding()
@@ -39,6 +41,8 @@ struct SecondScreen: View {
 
     var body: some View {
         VStack {
+            Text("2")
+                .font(Font.system(size: 200))
             NavPushButton(destination: ThirdScreen()) {
                 Text("To 3 Screen")
                     .padding()
@@ -59,8 +63,10 @@ struct ThirdScreen: View {
 
     var body: some View {
         VStack {
+            Text("3")
+                .font(Font.system(size: 200))
             NavPopButton(destination: .previous) {
-                Text("Back 2 Screen")
+                Text("Back to Prev")
                     .padding()
                     .background(Color.yellow)
             }
