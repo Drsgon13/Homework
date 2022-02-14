@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6602A54F278C0E6C000BB1E0 /* BooksAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = BooksAPI; path = ../../../../Downloads/Otus/Homework/AppUI/Modules/BooksAPI; sourceTree = "<group>"; };
 		66691C8F273008F90044222D /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
 		66691C91273009090044222D /* CatalogScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogScreen.swift; sourceTree = "<group>"; };
 		66691C93273009170044222D /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		66F4C902272FE6B4008112F7 = {
 			isa = PBXGroup;
 			children = (
+				6602A54F278C0E6C000BB1E0 /* BooksAPI */,
 				669B6D862744F7D900A4E63D /* AppSUI */,
 				66691C9827327A1D0044222D /* Networking */,
 				66F4C90D272FE6B4008112F7 /* AppUI */,

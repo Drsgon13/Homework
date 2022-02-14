@@ -35,6 +35,8 @@ open class RequestBuilder<T> {
         self.parameters = parameters
         self.headers = headers
 
+        print("headers = ", headers)
+
         addHeaders(OpenAPIClient.customHeaders)
     }
 
